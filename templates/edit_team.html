@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Team</title>
+<link rel="stylesheet" href="{{url_for('static',filename='header-footer.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='forms.css')}}">
+	
+</head>
+<body>
+	<div class="container">
+	<header class="clearifix">
+		<h1 class="title"><a href="{{url_for('mainPage')}}">Soccer Top Teams</a></h1>
+		{% if logged : %}
+		<h2 class="login-button"><a href="{{url_for('gdisconnect')}}">logout</a></h2>
+		{% else : %}
+		<h2 class="login-button"><a href="{{url_for('showLogin')}}">login</a></h2>
+		{% endif %}
+	</header>
+	</div>
+	
+<form action="{{ url_for('editTeam', team_id = team.id) }}" method="post">
+		<div>
+		<label for="title">Title</label>
+		<input type="text" id="title" name="title" placeholder="{{team.name}}">
+		</div>
+		<div>
+		<label for="info">Information</label>
+		<input type="text" id="info" name="info" placeholder="{{team.info}}">
+		</div>
+		<div>
+		<label for="league">League</label>
+		<select id="league" name="league">
+			{% for league in leagues %}
+			<option value='{{league.id}}'>{{ league.name }}</option>
+			{% endfor %}
+		</select>
+		</div>
+		<input type="submit">
+	</form>
+
+
+	<footer>
+		<p>Udacity Full-stack nanodegree project by Karim Tawfik</p>
+	</footer>
+
+</body>
+</html>

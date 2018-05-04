@@ -1,0 +1,27 @@
+.section-title{
+	color: grey;
+	text-align: center;
+	font-size: 30px;
+	text-decoration: italic;
+}
+
+article p {
+	color: #544776;
+	font-size: 20px;
+	font-style: italic;
+	background-color: ghostwhite;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.add-button{
+	color: white;
+	padding: 0 10px;
+	text-align: center;
+	line-height: 60px;
+	margin: 8px;
+	height: 65px;
+	border-radius: 10px;
+	background-color: #544776;
+	float: right;
+}

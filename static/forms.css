@@ -1,0 +1,28 @@
+form {
+	padding-top: 50px;
+	width: 50%;
+	margin: 0 auto;
+}
+
+form div{
+	margin: 10px;
+	background-color: ghostwhite;
+	height: 70px;
+}
+form > p {
+	color: red;
+	font-size: 25px;
+}
+label{
+	margin: 10px;
+	line-height: 70px;
+	color: #544776;
+	font-size: 35px;
+}
+input, select{
+	margin: 10px;
+	float: right;
+	border-radius: 10px;
+	width: 350px;
+	height: 50px;
+}

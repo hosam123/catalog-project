@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>League page</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='mainPage.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='header-footer.css')}}">
+	
+</head>
+<body>
+	<div class="container">
+	<header class="clearifix">
+		<h1 class="title"><a href="{{url_for('mainPage')}}">Soccer Top Teams</a></h1>
+		{% if logged : %}
+		<h2 class="login-button"><a href="{{url_for('gdisconnect')}}">logout</a></h2>
+		{% else : %}
+		<h2 class="login-button"><a href="{{url_for('showLogin')}}">login</a></h2>
+		{% endif %}
+	</header>
+	</div>
+	</div>
+	<div class="body-container clearifix">
+	<nav>
+		<h1 class="section-title">leagues</h1>
+		<ul>
+			{% for league in leagues %}
+			<li><a href="{{url_for('leaguePage', league_id=league.id)}}">{{ league.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
+	<section>
+		<h1 class="section-title">{{ league.name }}</h1>
+		<ul>
+			{% for team in teams %}
+			<li><a href="{{url_for('teamPage', team_id=team.id)}}">{{ team.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</section>
+	</div>
+
+
+
+	<footer>
+		<p>Udacity Full-stack nanodegree project by Karim Tawfik</p>
+	</footer>	
+
+</body>
+</html>

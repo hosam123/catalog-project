@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Team page</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='teamPage.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='header-footer.css')}}">
+	
+</head>
+<body>
+	<div class="container">
+	<header class="clearifix">
+		<h1 class="title"><a href="{{url_for('mainPage')}}">Soccer Top Teams</a></h1>
+		{% if logged : %}
+		<h2 class="login-button"><a href="{{url_for('gdisconnect')}}">logout</a></h2>
+		{% else : %}
+		<h2 class="login-button"><a href="{{url_for('showLogin')}}">login</a></h2>
+		{% endif %}
+	</header>
+	</div>
+
+	<article>
+		<h1 class="section-title">{{ team.name }}</h1>
+		<p>{{ team.info }}</p>
+		{% if logged : %}
+		<a href="{{url_for('editTeam',team_id=team.id)}}"><h2 class="add-button">Edit</h2></a>
+		<a href="{{url_for('deleteTeam',team_id=team.id)}}"><h2 class="add-button">Delete</h2></a>
+		{% endif %}
+		
+	</article>
+
+	<footer>
+		<p>Udacity Full-stack nanodegree project by Karim Tawfik</p>
+	</footer>
+
+</body>
+</html>
